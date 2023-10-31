@@ -34,7 +34,7 @@ def acharEndereco(cep):
 #função que recebe um endereço e devolve imprime latitude e longitude
 def geoLocalizar(data):
     geolocator = Nominatim(user_agent="my_app")
-    location = geolocator.geocode(data["logradouro"])
+    location = geolocator.geocode(f"{data['logradouro']}, {data['bairro']}, {data['localidade']}")
     latitude = location.latitude
     longitude = location.longitude
 
@@ -51,5 +51,5 @@ def tratarCep(cep):
 
 
 
-cep = '09172-010'
+cep = '09811-323'
 acharEndereco(cep)
